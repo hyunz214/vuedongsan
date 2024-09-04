@@ -10,6 +10,14 @@
     <div class="menu">
         <a v-for="(menu, i) in menus" :key="i">{{ menu }}</a>
     </div>
+    <div v-for="(value, i) in 원룸들" :key="i">
+        <img v-bind:src="value.image" class="room-img" />
+        <h4 @click="isOpenModal = true">{{ value.title }}</h4>
+        <p>{{ value.content }}</p>
+        <p>{{ value.price }} 원</p>
+        <!-- <button @click="increase(0)">허위매물 신고</button>
+        <span>신고수 : {{ 신고수[0] }}</span> -->
+    </div>
     <div>
         <img src="./assets/images/room0.jpg" class="room-img" />
         <h4 @click="isOpenModal = true">{{ products[0] }}</h4>
@@ -35,11 +43,13 @@
 
 <script>
 // import HelloWorld from "./components/HelloWorld.vue";
+import data from "./datas/oneroom.js";
 
 export default {
     name: "App",
     data() {
         return {
+            원룸들: data,
             isOpenModal: false,
             신고수: [0, 0, 0],
             price1: 60,
