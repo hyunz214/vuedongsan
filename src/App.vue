@@ -5,7 +5,7 @@
     <div>
         <h4>{{ products[0] }}</h4>
         <p>{{ price1 }} 만원</p>
-        <button @click="신고수++">허위매물 신고</button>
+        <button @click="increase">허위매물 신고</button>
         <span>신고수 : {{ 신고수 }}</span>
     </div>
     <div>
@@ -32,6 +32,11 @@ export default {
             menus: ["Home", "Products", "About"],
             products: ["역삼동 원룸", "천호동 원룸", "마포구 원룸"],
         };
+    },
+    methods: {
+        increase() {
+            this.신고수 += 1;
+        },
     },
     components: {
         // HelloWorld,
